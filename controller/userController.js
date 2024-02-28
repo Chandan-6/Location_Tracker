@@ -44,30 +44,9 @@ const registerUser = asyncHandler(async(req, res) =>{
 
 });
 
-
-// const loginUser = asyncHandler(async (req, res) => {
-//     const { userName, password } = req.body;
-//     if (!userName || !password) {
-//         res.status(400).send("All fields are mandatory.!!!!!!");
-//     }
-
-//     connection.query("SELECT COUNT(*) AS userCount FROM LOGIN_INFO WHERE userName = ?", [userName], function (err, result) {
-//         if (err) {
-//             console.log("Error in finding the user..");
-//             res.status(500).send("Error in login.");
-//         } else {
-//             const userCount = result[0].userCount;
-//             const userPassword = result[0].password;
-//             if (userCount > 0 && bcrypt.compareSync(password, userPassword)) {
-//                 console.log("User Login successful.");
-//                 res.status(200).send("Login Succesfull.");
-//             } else {
-//                 return res.status(200).send("User doesn't exists, to login, first you need to register.");
-//             }
-//         }
-//     });
-// });
-
+//@desc login user
+//@route POST /api/user/loginUser
+//@access public
 const loginUser = asyncHandler(async (req, res) => {
     const { userName, password } = req.body;
     if (!userName || !password) {
